@@ -17,6 +17,7 @@
 		04CD8D75247A8F19006B6743 /* SudokuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D74247A8F19006B6743 /* SudokuUITests.swift */; };
 		04CD8D83247A988E006B6743 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D82247A988E006B6743 /* MainView.swift */; };
 		04CD8D85247A9A64006B6743 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D84247A9A64006B6743 /* StatisticsView.swift */; };
+		04CD8D87247AA4BA006B6743 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D86247AA4BA006B6743 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		04CD8D76247A8F19006B6743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CD8D82247A988E006B6743 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		04CD8D84247A9A64006B6743 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		04CD8D86247AA4BA006B6743 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				04CD8D82247A988E006B6743 /* MainView.swift */,
+				04CD8D86247AA4BA006B6743 /* SettingView.swift */,
 				04CD8D84247A9A64006B6743 /* StatisticsView.swift */,
 				04CD8D56247A8F19006B6743 /* ContentView.swift */,
 				04CD8D52247A8F19006B6743 /* AppDelegate.swift */,
@@ -276,6 +279,7 @@
 				04CD8D85247A9A64006B6743 /* StatisticsView.swift in Sources */,
 				04CD8D83247A988E006B6743 /* MainView.swift in Sources */,
 				04CD8D53247A8F19006B6743 /* AppDelegate.swift in Sources */,
+				04CD8D87247AA4BA006B6743 /* SettingView.swift in Sources */,
 				04CD8D55247A8F19006B6743 /* SceneDelegate.swift in Sources */,
 				04CD8D57247A8F19006B6743 /* ContentView.swift in Sources */,
 			);

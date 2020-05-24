@@ -9,7 +9,22 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var show_modal: Bool = false
+    
     var body: some View {
-        Text("MainView")
+        NavigationView {
+            Text("MainScreen")
+                .navigationBarItems(
+                    trailing:
+                    Button(action: {
+                        self.show_modal = true
+                    }) {
+                        Image(systemName: "gear")
+                            .imageScale(.large)
+                    }.sheet(isPresented: self.$show_modal) {
+                        SettingView()
+                    }
+            )
+        }
     }
 }

@@ -10,6 +10,9 @@ import SwiftUI
 
 struct StatisticsView: View {
     var body: some View {
-        Text("StatisticsView")
+        NavigationView {
+            Text("NOTHING")
+                .navigationBarTitle("통계")
+        }
     }
 }
