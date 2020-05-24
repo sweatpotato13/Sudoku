@@ -13,8 +13,36 @@ struct MainView: View {
     
     var body: some View {
         NavigationView {
-            Text("MainScreen")
-                .navigationBarItems(
+            VStack{
+                Spacer()
+                Button(action: {
+                    print("tapped!")
+                }) {
+                    HStack {
+                        Text("게임 이어하기")
+                    }
+                    .padding()
+                    .frame(minWidth: 180, minHeight: 40)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(40)
+                }
+                .padding()
+                Button(action: {
+                    print("tapped!")
+                }) {
+                    HStack {
+                        Text("새 게임")
+                    }
+                    .padding()
+                    .frame(minWidth: 180, minHeight: 40)
+                    .foregroundColor(.white)
+                    .background(Color.gray)
+                    .cornerRadius(40)
+                }
+                .padding()
+            }
+            .navigationBarItems(
                     trailing:
                     Button(action: {
                         self.show_modal = true
