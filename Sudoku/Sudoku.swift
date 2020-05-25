@@ -25,7 +25,7 @@ struct SudokuCell {
         }
     }
     var didChange: Bool = false
-    
+    var isDefault: Bool = true
     var backgroundColor: Color = .blue
     var foregroundColor: Color = .white
     
@@ -1292,6 +1292,7 @@ class Sudoku : ObservableObject {
     //MARK: Cell
     func removeCell(row: Int, col: Int) {
         board[row][col].number = 0
+        board[row][col].isDefault = false;
         resetPos(row: row, col: col)
     }
     
