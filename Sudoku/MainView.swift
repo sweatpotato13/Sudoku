@@ -10,39 +10,22 @@ import SwiftUI
 
 struct MainView: View {
     @State private var show_modal: Bool = false
+    @ObservedObject var sud: Sudoku = Sudoku()
+    @State var selectedCell: (row: Int, col: Int, group: Int)? = nil
     
     var body: some View {
         NavigationView {
-            VStack{
-                Spacer()
-                Button(action: {
-                    print("tapped!")
-                }) {
-                    HStack {
-                        Text("게임 이어하기")
+            VStack {
+                NavigationLink(destination: GameView()) {
+                        ContinueGameView()
                     }
-                    .padding()
-                    .frame(minWidth: 180, minHeight: 40)
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(40)
-                }
                 .padding()
-                Button(action: {
-                    print("tapped!")
-                }) {
-                    HStack {
-                        Text("새 게임")
+                NavigationLink(destination: GameView()) {
+                        NewGameButtonView()
                     }
-                    .padding()
-                    .frame(minWidth: 180, minHeight: 40)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(40)
-                }
                 .padding()
-            }
-            .navigationBarItems(
+                }
+                .navigationBarItems(
                     trailing:
                     Button(action: {
                         self.show_modal = true
@@ -54,5 +37,27 @@ struct MainView: View {
                     }
             )
         }
+    }
+}
+
+struct ContinueGameView: View {
+    var body: some View {
+        Text("게임 이어하기")
+        .padding()
+        .frame(minWidth: 180, minHeight: 40)
+        .foregroundColor(.white)
+        .background(Color.blue)
+        .cornerRadius(40)
+    }
+}
+
+struct NewGameButtonView: View {
+    var body: some View {
+        Text("새 게임")
+        .padding()
+        .frame(minWidth: 180, minHeight: 40)
+        .foregroundColor(.white)
+        .background(Color.gray)
+        .cornerRadius(40)
     }
 }
