@@ -15,6 +15,13 @@ struct GameView: View {
 
     var body: some View {
         VStack(spacing: 10) {
+            HStack{
+                Button(action: {
+                    self.sud.solve()
+                }) {
+                    Text("확인")
+                }
+            }
             SudokuView(sud: sud, selectedCell: $selectedCell)
             HStack {
                 numberButtonView(number: 1, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
@@ -35,7 +42,8 @@ struct numberButtonView : View {
     @ObservedObject var sud: Sudoku
     @Binding var selectedCell: (row: Int, col: Int, group: Int)?
     @Binding var fillNotes: Bool
-    
+    @State private var showingAlert = false
+
     var imageName: String {
         get {
             switch self.number {
@@ -72,9 +80,13 @@ struct numberButtonView : View {
                     self.sud.setCell(row: select.row, col: select.col, to: self.number)
                 }
             }
+            if self.sud.isSolved {
+                self.showingAlert = true
+            }
         }) {
             Image(systemName: self.imageName).resizable().aspectRatio(1, contentMode: .fit)
+        } .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Problem Solved!!"), message: Text("Clear!"), dismissButton: .default(Text("Got it!")))
         }
     }
-    
 }
