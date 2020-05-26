@@ -42,7 +42,7 @@ struct MainView: View {
                 }
             }.simultaneousGesture(TapGesture().onEnded{
                 mainsud.reset()
-                userSettings.hasExistGame = false
+                userSettings.hasExistGame = true
         })
     }
         
