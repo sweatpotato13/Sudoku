@@ -2,6 +2,7 @@
 
 Sudoku application for ios
 
+
 ![size](https://img.shields.io/github/repo-size/sweatpotato13/Sudoku)
 ![contributors](https://img.shields.io/github/contributors/sweatpotato13/Sudoku)
 ![stars](https://img.shields.io/github/stars/sweatpotato13/Sudoku?style=plastic)
@@ -11,7 +12,9 @@ Sudoku application for ios
 ## Prerequisites
 
 ```
-??????????
+iOS 13 or above
+Xcode 11
+Swift 5
 ```
 
 ## Built With
