@@ -15,6 +15,7 @@ let items: [BottomBarItem] = [
     BottomBarItem(icon: "gear", title: "설정", color: .blue)
 ]
 
+var userSettings = UserSettings()
 var mainsud: Sudoku = Sudoku()
 
 struct BasicView: View {

@@ -12,7 +12,6 @@ import Foundation
 import Combine
 
 struct MainView: View {
-    @ObservedObject var userSettings = UserSettings()
     var body: some View {
         VStack {
             Spacer()
@@ -43,7 +42,7 @@ struct MainView: View {
                 }
             }.simultaneousGesture(TapGesture().onEnded{
                 mainsud.reset()
-                self.userSettings.hasExistGame = false
+                userSettings.hasExistGame = false
         })
     }
         

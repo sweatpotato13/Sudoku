@@ -82,12 +82,12 @@ struct numberButtonView : View {
                     //TODO: self.sud.set
                 } else {
                     self.sud.setCell(row: select.row, col: select.col, to: self.number)
-                    MainView().userSettings.hasExistGame = true
+                    userSettings.hasExistGame = true
                 }
             }
             if self.sud.isSolved {
                 self.showingAlert = true
-                MainView().userSettings.hasExistGame = false
+                userSettings.hasExistGame = false
             }
         }) {
             Image(systemName: self.imageName).resizable().aspectRatio(1, contentMode: .fit)

@@ -16,7 +16,6 @@ class UserSettings: ObservableObject {
         }
     }
 
-            
     init() {
         self.hasExistGame = UserDefaults.standard.object(forKey: "hasExistGame") as? Bool ?? false
     }
