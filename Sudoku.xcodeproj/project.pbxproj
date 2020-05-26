@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		04CD8D8B247BE7B1006B6743 /* SudokuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D8A247BE7B1006B6743 /* SudokuView.swift */; };
 		04CD8D8D247BEE1A006B6743 /* Sudoku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D8C247BEE1A006B6743 /* Sudoku.swift */; };
 		04CD8D8F247BF353006B6743 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D8E247BF353006B6743 /* GameView.swift */; };
+		04CD8D92247D2DF5006B6743 /* BottomBar-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 04CD8D91247D2DF5006B6743 /* BottomBar-SwiftUI */; };
+		04CD8D98247D3CFB006B6743 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CD8D97247D3CFB006B6743 /* UserSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		04CD8D8A247BE7B1006B6743 /* SudokuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuView.swift; sourceTree = "<group>"; };
 		04CD8D8C247BEE1A006B6743 /* Sudoku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sudoku.swift; sourceTree = "<group>"; };
 		04CD8D8E247BF353006B6743 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		04CD8D97247D3CFB006B6743 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CD8D92247D2DF5006B6743 /* BottomBar-SwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +115,7 @@
 		04CD8D51247A8F19006B6743 /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
+				04CD8D97247D3CFB006B6743 /* UserSettings.swift */,
 				04CD8D8A247BE7B1006B6743 /* SudokuView.swift */,
 				04CD8D8E247BF353006B6743 /* GameView.swift */,
 				04CD8D82247A988E006B6743 /* MainView.swift */,
@@ -170,6 +175,9 @@
 			dependencies = (
 			);
 			name = Sudoku;
+			packageProductDependencies = (
+				04CD8D91247D2DF5006B6743 /* BottomBar-SwiftUI */,
+			);
 			productName = Sudoku;
 			productReference = 04CD8D4F247A8F19006B6743 /* Sudoku.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 04CD8D46247A8F19006B6743;
+			packageReferences = (
+				04CD8D90247D2DF5006B6743 /* XCRemoteSwiftPackageReference "bottombar-swiftui" */,
+			);
 			productRefGroup = 04CD8D50247A8F19006B6743 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,6 +298,7 @@
 			files = (
 				04CD8D85247A9A64006B6743 /* StatisticsView.swift in Sources */,
 				04CD8D83247A988E006B6743 /* MainView.swift in Sources */,
+				04CD8D98247D3CFB006B6743 /* UserSettings.swift in Sources */,
 				04CD8D8D247BEE1A006B6743 /* Sudoku.swift in Sources */,
 				04CD8D53247A8F19006B6743 /* AppDelegate.swift in Sources */,
 				04CD8D8F247BF353006B6743 /* GameView.swift in Sources */,
@@ -612,6 +624,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04CD8D90247D2DF5006B6743 /* XCRemoteSwiftPackageReference "bottombar-swiftui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/smartvipere75/bottombar-swiftui";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04CD8D91247D2DF5006B6743 /* BottomBar-SwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04CD8D90247D2DF5006B6743 /* XCRemoteSwiftPackageReference "bottombar-swiftui" */;
+			productName = "BottomBar-SwiftUI";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04CD8D47247A8F19006B6743 /* Project object */;
 }

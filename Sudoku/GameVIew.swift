@@ -1,5 +1,5 @@
 //
-//  GameVIew.swift
+//  GameView.swift
 //  Sudoku
 //
 //  Created by mac on 2020/05/25.
@@ -9,17 +9,18 @@
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject var sud: Sudoku = Sudoku()
+    let item: Bool
+    @ObservedObject var sud: Sudoku = mainsud
     @State var selectedCell: (row: Int, col: Int, group: Int)? = nil
     @State var fillNotes: Bool = false
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack {
             HStack{
                 Button(action: {
                     self.sud.solve()
                 }) {
-                    Text("확인")
+                    Text("정답")
                 }
             }
             SudokuView(sud: sud, selectedCell: $selectedCell)
@@ -37,7 +38,10 @@ struct GameView: View {
         }
     }
 }
+
 struct numberButtonView : View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.presentationMode) var presentationMode
     let number: Int
     @ObservedObject var sud: Sudoku
     @Binding var selectedCell: (row: Int, col: Int, group: Int)?
@@ -78,15 +82,19 @@ struct numberButtonView : View {
                     //TODO: self.sud.set
                 } else {
                     self.sud.setCell(row: select.row, col: select.col, to: self.number)
+                    MainView().userSettings.hasExistGame = true
                 }
             }
             if self.sud.isSolved {
                 self.showingAlert = true
+                MainView().userSettings.hasExistGame = false
             }
         }) {
             Image(systemName: self.imageName).resizable().aspectRatio(1, contentMode: .fit)
         } .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Problem Solved!!"), message: Text("Clear!"), dismissButton: .default(Text("Got it!")))
+            Alert(title: Text("Problem solved"), message: Text("완료"), dismissButton: .destructive(Text("Ok"), action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
 }

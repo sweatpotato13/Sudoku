@@ -7,23 +7,55 @@
 //
 
 import SwiftUI
+import BottomBar_SwiftUI
 
-struct ContentView: View {
+let items: [BottomBarItem] = [
+    BottomBarItem(icon: "house.fill", title: "메인", color: .purple),
+    BottomBarItem(icon: "chart.bar.fill", title: "통계", color: .pink),
+    BottomBarItem(icon: "gear", title: "설정", color: .blue)
+]
+
+var mainsud: Sudoku = Sudoku()
+
+struct BasicView: View {
+    let item: BottomBarItem
+
+    var detailText: String {
+    "\(item.title) Detail"
+    }
+
+@ViewBuilder
+var body: some View {
+    if item.title == "메인" {
+        MainView()
+    }
+    else if item.title == "통계" {
+        StatisticsView()
+    }
+    else {
+        SettingView()
+    }
+    }
+}
+
+struct ContentView : View {
+    @State private var selectedIndex: Int = 0
+
+    var selectedItem: BottomBarItem {
+        items[selectedIndex]
+    }
+
     var body: some View {
-        TabView {
-            MainView()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("메인")
-            }
-            StatisticsView()
-                .tabItem {
-                    Image(systemName: "chart.bar.fill")
-                    Text("통계")
+        NavigationView {
+            VStack {
+                BasicView(item: selectedItem)
+                    .navigationBarTitle(Text(selectedItem.title))
+                BottomBar(selectedIndex: $selectedIndex, items: items)
             }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -12,7 +12,6 @@ struct StatisticsView: View {
     var body: some View {
         NavigationView {
             Text("NOTHING")
-                .navigationBarTitle("통계")
         }
     }
 }

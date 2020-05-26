@@ -16,9 +16,9 @@ struct SettingView: View {
             .navigationBarItems(
                 trailing:
                     Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
+                        // TODO : 저장해
                     }) {
-                        Text("확인")
+                        Text("저장")
                     }
             )
         }

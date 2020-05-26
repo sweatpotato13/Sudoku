@@ -1,5 +1,5 @@
 //
-//  MainScreen.swift
+//  MainView.swift
 //  Sudoku
 //
 //  Created by mac on 2020/05/24.
@@ -7,57 +7,59 @@
 //
 
 import SwiftUI
+import BottomBar_SwiftUI
+import Foundation
+import Combine
 
 struct MainView: View {
-    @State private var show_modal: Bool = false
-    @ObservedObject var sud: Sudoku = Sudoku()
-    @State var selectedCell: (row: Int, col: Int, group: Int)? = nil
-    
+    @ObservedObject var userSettings = UserSettings()
     var body: some View {
-        NavigationView {
-            VStack {
-                NavigationLink(destination: GameView()) {
-                        ContinueGameView()
-                    }
-                .padding()
-                NavigationLink(destination: GameView()) {
-                        NewGameButtonView()
-                    }
-                .padding()
-                }
-                .navigationBarItems(
-                    trailing:
-                    Button(action: {
-                        self.show_modal = true
-                    }) {
-                        Image(systemName: "gear")
-                            .imageScale(.large)
-                    }.sheet(isPresented: self.$show_modal) {
-                        SettingView()
-                    }
-            )
+        VStack {
+            Spacer()
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+            Spacer()
+            if userSettings.hasExistGame {
+                continueGameButton
+            }
+            newGameButton
         }
     }
-}
+    
+    var newGameButton: some View {
+        NavigationLink(destination: GameView(item: true)) {
+                ZStack {
+                    Rectangle()
+                        .fill(Color.gray)
+                        .cornerRadius(8)
+                        .frame(height: 52)
+                        .padding(.horizontal)
 
-struct ContinueGameView: View {
-    var body: some View {
-        Text("게임 이어하기")
-        .padding()
-        .frame(minWidth: 180, minHeight: 40)
-        .foregroundColor(.white)
-        .background(Color.blue)
-        .cornerRadius(40)
+                    Text("새 게임")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                
+                }
+            }.simultaneousGesture(TapGesture().onEnded{
+                mainsud.reset()
+                self.userSettings.hasExistGame = false
+        })
     }
-}
+        
+    var continueGameButton: some View {
+        NavigationLink(destination: GameView(item: false)) {
+            ZStack {
+                Rectangle()
+                    .fill(Color.purple)
+                    .cornerRadius(8)
+                    .frame(height: 52)
+                    .padding(.horizontal)
 
-struct NewGameButtonView: View {
-    var body: some View {
-        Text("새 게임")
-        .padding()
-        .frame(minWidth: 180, minHeight: 40)
-        .foregroundColor(.white)
-        .background(Color.gray)
-        .cornerRadius(40)
+                Text("게임 이어하기")
+                    .font(.headline)
+                    .foregroundColor(.white)
+            }
+        }
     }
 }

@@ -130,10 +130,15 @@ class Sudoku : ObservableObject {
                 setCell(row: row, col: col, to: board[row][col].number)
             }
         }
-        
-        
     }
+
+    func reset(){
+        board = [[SudokuCell]]()
         
+        gererate(difficulty: .Easy, given: 60)
+    }
+
+    
     //MARK: - Save
     var saveState: [[[SudokuCell]]] = [[[SudokuCell]]]()
     func save() {
