@@ -46,7 +46,6 @@ struct MainView: View {
                 if userSettings.hasExistGame{
                     userSettings.Loses += 1
                 }
-                userSettings.Winrate = userSettings.Wins / userSettings.totalGames * 100
                 userSettings.hasExistGame = true
         })
     }

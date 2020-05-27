@@ -30,11 +30,6 @@ class UserSettings: ObservableObject {
             UserDefaults.standard.set(Loses, forKey: "Loses")
         }
     }
-    @Published var Winrate: Int {
-        didSet {
-            UserDefaults.standard.set(Loses, forKey: "Winrate")
-        }
-    }
 
 
     init() {
@@ -42,6 +37,5 @@ class UserSettings: ObservableObject {
         self.totalGames = UserDefaults.standard.object(forKey: "totalGames") as? Int ?? 0
         self.Wins = UserDefaults.standard.object(forKey: "Wins") as? Int ?? 0
         self.Loses = UserDefaults.standard.object(forKey: "Loses") as? Int ?? 0
-        self.Winrate = UserDefaults.standard.object(forKey: "Winrate") as? Int ?? 0
     }
 }

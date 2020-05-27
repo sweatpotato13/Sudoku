@@ -12,7 +12,7 @@ import BottomBar_SwiftUI
 let items: [BottomBarItem] = [
     BottomBarItem(icon: "house.fill", title: "메인", color: .purple),
     BottomBarItem(icon: "chart.bar.fill", title: "통계", color: .pink),
-    BottomBarItem(icon: "gear", title: "설정", color: .blue)
+    BottomBarItem(icon: "questionmark.circle.fill", title: "정보", color: .blue)
 ]
 
 var userSettings = UserSettings()
@@ -34,7 +34,7 @@ var body: some View {
         StatisticsView()
     }
     else {
-        SettingView()
+        InfomationView()
     }
     }
 }

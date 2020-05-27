@@ -16,13 +16,6 @@ struct GameView: View {
 
     var body: some View {
         VStack {
-            HStack{
-                Button(action: {
-                    self.sud.solve()
-                }) {
-                    Text("정답")
-                }
-            }
             SudokuView(sud: sud, selectedCell: $selectedCell)
             HStack {
                 numberButtonView(number: 1, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
@@ -35,12 +28,6 @@ struct GameView: View {
                 numberButtonView(number: 8, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
                 numberButtonView(number: 9, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
             }.padding(.leading).padding(.trailing)
-            HStack{
-                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
-                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
-                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
-                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
-             }.padding(.leading).padding(.trailing)
         }
     }
 }
@@ -101,7 +88,6 @@ struct numberButtonView : View {
             Alert(title: Text("Problem solved"), message: Text("완료"), dismissButton: .destructive(Text("Ok"), action: {
                 self.presentationMode.wrappedValue.dismiss()
                 userSettings.Wins += 1
-                userSettings.Winrate = (userSettings.Wins * 100) / userSettings.totalGames
             }))
         }
     }

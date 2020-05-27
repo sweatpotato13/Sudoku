@@ -65,27 +65,6 @@ struct StatisticsView: View {
                 }
             }
             
-            ZStack {
-                Rectangle()
-                    .fill(Color.red)
-                    .cornerRadius(8)
-                    .frame(height: 100)
-                    .padding(.horizontal)
-                HStack{
-                    Image(systemName: "flag.fill")
-                        .font(.title)
-                    Text("   승률  :  ")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text(String(userSettings.Winrate))
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text(" %")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                }
-            }
-            
             Spacer()
 
         }
