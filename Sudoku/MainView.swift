@@ -42,6 +42,11 @@ struct MainView: View {
                 }
             }.simultaneousGesture(TapGesture().onEnded{
                 mainsud.reset()
+                userSettings.totalGames += 1
+                if userSettings.hasExistGame{
+                    userSettings.Loses += 1
+                }
+                userSettings.Winrate = userSettings.Wins / userSettings.totalGames * 100
                 userSettings.hasExistGame = true
         })
     }
@@ -59,6 +64,9 @@ struct MainView: View {
                     .font(.headline)
                     .foregroundColor(.white)
             }
-        }
+        }.simultaneousGesture(TapGesture().onEnded{
+
+        })
     }
+    
 }

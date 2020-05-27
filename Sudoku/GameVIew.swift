@@ -35,6 +35,12 @@ struct GameView: View {
                 numberButtonView(number: 8, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
                 numberButtonView(number: 9, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
             }.padding(.leading).padding(.trailing)
+            HStack{
+                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
+                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
+                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
+                numberButtonView(number: 0, sud: self.sud, selectedCell: $selectedCell, fillNotes: $fillNotes)
+             }.padding(.leading).padding(.trailing)
         }
     }
 }
@@ -70,7 +76,7 @@ struct numberButtonView : View {
             case 9:
                 return "9.square.fill"
             default:
-                return "1.square.fill"
+                return "clear"
             }
         }
     }
@@ -94,6 +100,8 @@ struct numberButtonView : View {
         } .alert(isPresented: $showingAlert) {
             Alert(title: Text("Problem solved"), message: Text("완료"), dismissButton: .destructive(Text("Ok"), action: {
                 self.presentationMode.wrappedValue.dismiss()
+                userSettings.Wins += 1
+                userSettings.Winrate = (userSettings.Wins * 100) / userSettings.totalGames
             }))
         }
     }

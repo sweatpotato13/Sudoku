@@ -9,6 +9,7 @@
 import SwiftUI
 import Foundation
 
+
 enum Difficulty {
     case Easy, Medium, Hard, Expert
 }
@@ -53,7 +54,7 @@ Takes in / or generates a sudoku puzzel, then shows how to solve the puzzel
 - Todo:
     - make it faster
 */
-class Sudoku : ObservableObject {
+class Sudoku : ObservableObject {    
     @Published var board: [[SudokuCell]]
     @Published var hideNotes = true {
         didSet {
@@ -1100,8 +1101,8 @@ class Sudoku : ObservableObject {
                 }
             }
         }
-        
     }
+    
     func setCell(row: Int, col: Int, to: Int) {
         board[row][col].number = to
         board[row][col].pos = [Int]()
