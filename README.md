@@ -7,7 +7,7 @@ Sudoku application for ios
 ![contributors](https://img.shields.io/github/contributors/sweatpotato13/Sudoku)
 ![stars](https://img.shields.io/github/stars/sweatpotato13/Sudoku?style=plastic)
 
-![example](https://i.imgur.com/6RYtz4G.png)
+![example](https://i.imgur.com/tHTwHYU.png)
 
 ## Prerequisites
 
