@@ -12,12 +12,26 @@ import Foundation
 import Combine
 
 struct MainView: View {
+    @State private var showingActionSheet = false
+    @State private var diff = Difficulty.Easy
+
     var body: some View {
         VStack {
             Spacer()
             Image("logo")
                 .resizable()
                 .scaledToFit()
+                .onTapGesture {
+                    self.showingActionSheet = true
+                }
+                .actionSheet(isPresented: $showingActionSheet) {
+                    ActionSheet(title: Text("Select Difficulty"), message: Text("난이도를 선택하세요"), buttons: [
+                        .default(Text("Easy")) { self.diff = .Easy },
+                        .default(Text("Medium")) { self.diff = .Medium },
+                        .default(Text("Hard")) { self.diff = .Hard },
+                        .cancel()
+                    ])
+                }
             Spacer()
             if userSettings.hasExistGame {
                 continueGameButton
@@ -41,7 +55,7 @@ struct MainView: View {
                 
                 }
             }.simultaneousGesture(TapGesture().onEnded{
-                mainsud.reset()
+                mainsud.reset(diff: self.diff)
                 userSettings.totalGames += 1
                 if userSettings.hasExistGame{
                     userSettings.Loses += 1

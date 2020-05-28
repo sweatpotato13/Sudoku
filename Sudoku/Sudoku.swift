@@ -138,7 +138,11 @@ class Sudoku : ObservableObject {
         
         gererate(difficulty: .Easy, given: 60)
     }
-
+    
+    func reset(diff: Difficulty){
+        board = [[SudokuCell]]()
+        gererate(difficulty: diff, given: 60)
+    }
     
     //MARK: - Save
     var saveState: [[[SudokuCell]]] = [[[SudokuCell]]]()
