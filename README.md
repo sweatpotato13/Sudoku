@@ -9,6 +9,13 @@ Sudoku application for ios
 
 ![example](https://i.imgur.com/tHTwHYU.png)
 
+## feature
+
+* Make new game
+* Continue previous game
+* Can be Light/Dark mode depend on system option
+* Store statistics data
+
 ## Prerequisites
 
 ```
